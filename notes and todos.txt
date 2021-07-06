@@ -1,0 +1,3 @@
+
+now the first mode should be on top of the circle
+and fix warnings from sass (DO NOT FIX NPM UNTIL)
