@@ -39,4 +39,14 @@
   @include on-circle($item-count: 12, $circle-size: 20em, $item-size: 3.5em); 
   margin: 5em auto 0;
   border: solid 5px tomato;
+  position: relative;
+}
+
+.circle-notes {
+  @include on-circle($item-count: 12, $circle-size: 12em, $item-size: 2em); 
+  margin: 5em auto 0;
+  border: solid 5px tomato;
+  position: absolute;
+  top: 4em;
+  left: 21em;
 }

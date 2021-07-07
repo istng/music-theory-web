@@ -1,3 +1,5 @@
 
 now the first mode should be on top of the circle
 and fix warnings from sass (DO NOT FIX NPM UNTIL)
+
+despite having the circle functional, a lot of redisgn must be done to have it aligned perfectly and to be able to further expand its features
