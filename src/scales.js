@@ -27,5 +27,3 @@ export const classicModes = [
           name: 'locrian',
         }
       ]
-
-export default classicModes;

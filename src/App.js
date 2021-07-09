@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import classicModes from './scales.js'
+import { classicModes } from './scales.js'
 
 class Note extends React.Component {
   constructor(props) {
