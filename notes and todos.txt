@@ -1,5 +1,4 @@
 
-now the first mode should be on top of the circle
 and fix warnings from sass (DO NOT FIX NPM UNTIL)
 
-despite having the circle functional, a lot of redisgn must be done to have it aligned perfectly and to be able to further expand its features
+idea: could be that the main view of the modes circle is actually a picture, but above it we put the list of buttons, as to be able to rotate it... as I suspect is somewhat difficult to make the visual circle pretty starting only with data and css, the data could be tied with a picture, as to use it to make rotate the circle correctly and use it for features such as chords calculation, but beign able to have a nice visual, no beign dependant on the data to be able to "draw" the circle...

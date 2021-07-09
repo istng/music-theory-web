@@ -88,9 +88,8 @@ export class NotesCircle extends React.Component {
   render() {
 
     return (
-      <div>
-        <div className="circle-container">
-          <ul className="circle-notes">
+        <div>
+          <ul className="notes-circle">
             { this.state.notes.map((note, index) => {
               return (
                 <li key={index}>
@@ -100,7 +99,6 @@ export class NotesCircle extends React.Component {
             }) }
           </ul>
         </div>
-      </div>
     );
   }
 }

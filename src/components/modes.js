@@ -64,17 +64,14 @@ export class ModesCircle extends React.Component {
   }
 
   render() {
-
     return (
-      <div>
-        <div className="circle-container">
-          <ul className="circle">
+        <div>
+          <ul className="modes-circle">
             { this.state.modes.map((mode, index) => {
               return this.renderMode(mode, index);
             }) }
           </ul>
         </div>
-      </div>
     );
   }
 }
