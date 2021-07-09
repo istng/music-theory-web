@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-
+import classicModes from './scales.js'
 
 class Note extends React.Component {
   constructor(props) {
@@ -139,35 +139,7 @@ class ModesCircle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modes: [
-        {
-          tone: 'mayor',
-          name: 'ionian',
-        }, {
-        }, {
-          tone: null,
-          name: 'dorian',
-        }, {
-        }, {
-          tone: null,
-          name: 'phrygian',
-        }, {
-          tone: null,
-          name: 'lydian',
-        }, {
-        }, {
-          tone: null,
-          name: 'mixolydian',
-        }, {
-        }, {
-          tone: 'natural minor',
-          name: 'aeolian',
-        }, {
-        }, {
-          tone: null,
-          name: 'locrian',
-        }
-      ],
+      modes: props.modes,
     };
   }
 
@@ -217,7 +189,7 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        <ModesCircle />
+        <ModesCircle modes={classicModes} />
         <NotesCircle />
       </div>
     );
