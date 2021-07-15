@@ -10,10 +10,14 @@ export class App extends React.Component {
   render() {
     return (
       <div className='outer-circles-container'>
-      <div className='circles-container'>
-        <ModesCircle className='modes-circle-component' modes={classicModes} />
-        <NotesCircle className='notes-circle-component' />
-      </div>
+        <div className='circle-container'>
+          <div className='outer-circle'>
+            <ModesCircle className='modes-circle-component' modes={classicModes} />
+          </div>
+          <div className='inner-circle'>
+            <NotesCircle className='notes-circle-component' />
+          </div>
+        </div>
       </div>
     );
   }

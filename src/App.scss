@@ -104,11 +104,32 @@
   .modes-circle {
     //@include on-circle($item-count: 12, $circle-size: 16em, $item-size: 3.5em); 
     //border: solid 5px red;
-    @include circle($item-count: 12, $circle-size: 16em);
+    @include circle($item-count: 12, $circle-size: 20em);
   }
   .notes-circle {
     //@include on-circle($item-count: 12, $circle-size: 10em, $item-size: 2em); 
     //border: solid 5px red;
-    @include circle($item-count: 12, $circle-size: 12em);
+    @include circle($item-count: 12, $circle-size: 14em);
   }
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outer-circle {
+  position: relative;
+  height: 350px;
+  width: 350px;
+  
+  border-radius: 50%;
+  display: inline-block;
+}
+.inner-circle {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  display: inline-block;
 }
