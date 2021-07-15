@@ -1,10 +1,5 @@
-/// Mixin to place items on a circle
-/// @author Hugo Giraudel
-/// @author Ana Tudor
-/// @param {Integer} $item-count - Number of items on the circle
-/// @param {Length} $circle-size - Large circle size
-/// @param {Length} $item-size - Single item size
-@mixin on-circle($item-count, $circle-size, $item-size) {  
+
+@mixin line-circle($item-count, $circle-size, $item-size) {  
   position: relative;
   width:  $circle-size;
   height: $circle-size;
@@ -22,7 +17,7 @@
     height: $item-size;
   
     $angle: (360 / $item-count);
-    $rot: -80;
+    $rot: -74;
 
     @for $i from 1 through $item-count {
       &:nth-of-type(#{$i}) {
@@ -35,7 +30,7 @@
 }
 
 
-@mixin circle($item-count, $circle-size) {  
+@mixin colored-circle($item-count, $circle-size) {  
   position: relative;
   border: 1px solid black;
   padding: 0;
@@ -75,15 +70,11 @@
 
 
 .modes-circle {
-  //@include on-circle($item-count: 12, $circle-size: 20em, $item-size: 3.5em); 
-  //border: solid 5px red;
-  @include circle($item-count: 12, $circle-size: 25em);
+  @include colored-circle($item-count: 12, $circle-size: 25em);
 }
 
 .notes-circle {
-  //@include on-circle($item-count: 12, $circle-size: 12em, $item-size: 2em); 
-  //border: solid 5px red;
-  @include circle($item-count: 12, $circle-size: 18em);
+  @include line-circle($item-count: 12, $circle-size: 12em, $item-size:2em); 
 }
 
 .mode-button {
@@ -102,34 +93,17 @@
 
 @media (max-width: 768px) {
   .modes-circle {
-    //@include on-circle($item-count: 12, $circle-size: 16em, $item-size: 3.5em); 
-    //border: solid 5px red;
-    @include circle($item-count: 12, $circle-size: 20em);
+    @include colored-circle($item-count: 12, $circle-size: 20em);
   }
   .notes-circle {
-    //@include on-circle($item-count: 12, $circle-size: 10em, $item-size: 2em); 
-    //border: solid 5px red;
-    @include circle($item-count: 12, $circle-size: 14em);
+    @include line-circle($item-count: 12, $circle-size: 8.5em, $item-size: 2em);
   }
 }
-
 .circle-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.outer-circle {
-  position: relative;
-  height: 350px;
-  width: 350px;
-  
-  border-radius: 50%;
-  display: inline-block;
-}
 .inner-circle {
   position: absolute;
-  height: 250px;
-  width: 250px;
-  border-radius: 50%;
-  display: inline-block;
 }

@@ -11,9 +11,7 @@ export class App extends React.Component {
     return (
       <div className='outer-circles-container'>
         <div className='circle-container'>
-          <div className='outer-circle'>
-            <ModesCircle className='modes-circle-component' modes={classicModes} />
-          </div>
+          <ModesCircle className='modes-circle-component' modes={classicModes} />
           <div className='inner-circle'>
             <NotesCircle className='notes-circle-component' />
           </div>
