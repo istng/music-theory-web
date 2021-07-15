@@ -17,9 +17,15 @@ class Note extends React.Component {
   }
 
   render() {
+    let button;
+    if (this.state.american.length === 2) {
+      button = <button className="note-button" onClick={this.props.rotate}> { this.state.american[0] } <br /> { this.state.american[1] } </button>
+    } else {
+      button = <button className="note-button" onClick={this.props.rotate}> { this.state.american } </button>
+    }
     return (
       <div>
-        <button className="note-button" onClick={this.props.rotate}> { this.state.american } </button>
+        { button }
       </div>
     );
   }
@@ -36,7 +42,7 @@ export class NotesCircle extends React.Component {
           american: ['C'],
         }, {
           name: ['do#', 'reb'],
-          american: ['do#', 'Db'],
+          american: ['C#', 'Db'],
         }, {
           name: ['re'],
           american: ['D'],
