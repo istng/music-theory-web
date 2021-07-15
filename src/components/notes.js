@@ -19,7 +19,7 @@ class Note extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.rotate}> { this.state.american } </button>
+        <button className="note-button" onClick={this.props.rotate}> { this.state.american } </button>
       </div>
     );
   }
@@ -93,7 +93,7 @@ export class NotesCircle extends React.Component {
             { this.state.notes.map((note, index) => {
               return (
                 <li key={index}>
-                  <Note name={note.name} american={note.american} rotate={() => {this.handleClick({...note, index: index})}}/>
+                  <div className="li-content"><Note name={note.name} american={note.american} rotate={() => {this.handleClick({...note, index: index})}}/></div>
                 </li>
               );
             }) }

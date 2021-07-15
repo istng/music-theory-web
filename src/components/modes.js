@@ -19,9 +19,9 @@ class Mode extends React.Component {
   render() {
     let button;
     if (this.state.tone) {
-      button = <button onClick={this.props.rotate}> { this.state.tone } ({ this.state.name }) </button>;
+      button = <button className="mode-button" onClick={this.props.rotate}> { this.state.tone } <br /> ({ this.state.name }) </button>;
     } else {
-      button = <button onClick={this.props.rotate}> { this.state.name } </button>;
+      button = <button className="mode-button" onClick={this.props.rotate}> { this.state.name } </button>;
     }
     return (
       <div>
@@ -54,11 +54,11 @@ export class ModesCircle extends React.Component {
   renderMode(mode, index) {
     if (mode.name) {
       return (
-        <li key={index}> <Mode tone={mode.tone} name={mode.name} rotate={() => {this.handleClick({...mode, index: index})}} /> </li>
+        <li style={{background: mode.color}} key={index} ><div className="li-content" > <Mode name={mode.name} tone={mode.tone} rotate={() => {this.handleClick({...mode, index: index})}}/> </div></li>
       );
     } else {
       return (
-        <li key={index}> nada </li>
+        <li style={{background: 'grey', opacity: '25%'}} key={index}><div className="li-content">  </div></li>
       );
     }
   }
