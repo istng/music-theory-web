@@ -2,35 +2,35 @@ export const classicModes = [
         {
           tone: 'mayor',
           name: 'ionian',
-          color: '#004CA3',
+          color: '#FFAF3B',
         }, {
         }, {
           tone: null,
           name: 'dorian',
-          color: '#FFA47E',
+          color: '#7F9FD0',
         }, {
         }, {
           tone: null,
           name: 'phrygian',
-          color: '#FFD286',
+          color: '#ACD0EA',
         }, {
           tone: null,
           name: 'lydian',
-          color: '#BA51A5',
+          color: '#FFFFA6',
         }, {
         }, {
           tone: null,
           name: 'mixolydian',
-          color: '#CB5E99',
+          color: '#FF6A4D',
         }, {
         }, {
           tone: 'minor',
           name: 'aeolian',
-          color: '#F47B89',
+          color: '#6761AB',
         }, {
         }, {
           tone: null,
           name: 'locrian',
-          color: '#FFFFA6',
+          color: '#FEC5E8',
         }
       ]

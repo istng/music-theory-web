@@ -77,6 +77,16 @@
   @include line-circle($item-count: 12, $circle-size: 12em, $item-size:2em); 
 }
 
+@media (max-width: 768px) {
+  .modes-circle {
+    @include colored-circle($item-count: 12, $circle-size: 20em);
+  }
+  .notes-circle {
+    @include line-circle($item-count: 12, $circle-size: 8.5em, $item-size: 2em);
+  }
+}
+
+
 .mode-button {
   cursor: pointer;
   border-radius: 40%;
@@ -91,14 +101,6 @@
   border: 0.25em solid rgba(0,0,0,.05);
 }
 
-@media (max-width: 768px) {
-  .modes-circle {
-    @include colored-circle($item-count: 12, $circle-size: 20em);
-  }
-  .notes-circle {
-    @include line-circle($item-count: 12, $circle-size: 8.5em, $item-size: 2em);
-  }
-}
 .circle-container {
   display: flex;
   align-items: center;
