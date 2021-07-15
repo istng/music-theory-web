@@ -24,7 +24,7 @@ export const classicModes = [
           color: '#CB5E99',
         }, {
         }, {
-          tone: 'natural minor',
+          tone: 'minor',
           name: 'aeolian',
           color: '#F47B89',
         }, {
