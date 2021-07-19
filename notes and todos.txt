@@ -3,9 +3,7 @@ and fix warnings from sass (DO NOT FIX NPM UNTIL)
 
 find some order for these:
 
-find a better color palette for the modes
-make the circle stand in the middle of the web
-fix sizes and positions of buttons on mobile
+find a better color palette for the modes -> color the buttons of modes, but color the backgounrds as the leading mode
 change firebase domain/project name (maybe create a new project... but I dont like creating-deleting with google console)
 change background, maybe add a title and an explanation
 make a nice readme
