@@ -49,6 +49,7 @@ export class ModesCircle extends React.Component {
     this.setState({
       modes: newModes,
     });
+    this.props.changeMode(newModes[0].name);
   }
 
   renderMode(mode, index) {

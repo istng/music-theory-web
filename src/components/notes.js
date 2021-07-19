@@ -89,6 +89,7 @@ export class NotesCircle extends React.Component {
     this.setState({
       notes: newNotes,
     });
+    this.props.changeNote(newNotes[0].american);
   }
 
   render() {
