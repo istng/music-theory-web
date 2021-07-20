@@ -1,6 +1,5 @@
 
 priorities
-	maybe color/highlight current notes of scale in circle
 	color of graph and stylize
 	readme
 	background and stuff
