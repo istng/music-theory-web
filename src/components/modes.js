@@ -56,10 +56,17 @@ export class ModesCircle extends React.Component {
     this.props.changeMode(newModes[0].name);
   }
 
+  getModeBackgroundColor(color, modeIndex) {
+    return {
+      background: color, 
+      opacity: (100-3*(modeIndex+1)).toString()+'%',
+    };
+  }
+
   renderMode(mode, index) {
     if (mode.name) {
       return (
-        <li style={{background: this.state.mainMode.color, opacity: (100-3*(index+1)).toString()+'%'}} key={index} ><div className="li-content" > <Mode name={mode.name} tone={mode.tone} color={mode.color} rotate={() => {this.handleClick({...mode, index: index})}}/> </div></li>
+        <li style={this.getModeBackgroundColor(this.state.mainMode.color, index)} key={index} ><div className="li-content" > <Mode name={mode.name} tone={mode.tone} color={mode.color} rotate={() => {this.handleClick({...mode, index: index})}}/> </div></li>
       );
     } else {
       return (
