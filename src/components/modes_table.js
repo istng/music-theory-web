@@ -103,7 +103,12 @@ export class ModesTable extends React.Component {
     return (<tr>
       <td>
         <button className='modes-table-mode-button' onClick={() => this.changeMainMode(modeName)}>
-          { modeName }
+          <div className='desktop-name'>
+            { modeName }
+          </div>
+          <div className='mobile-name'>
+            { modeName[0] }
+          </div>
         </button>
       </td>
       { intervals.map((value, index) => {
@@ -112,18 +117,36 @@ export class ModesTable extends React.Component {
     </tr>);
   }
 
+  renderNote(american) {
+    if(american.length === 2) {
+      return (
+        <div>
+          { american[0] }
+          <br />
+          { american[1] }
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          { american[0] }
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
         <div className='modes-table-container'>
           <table className='modes-table'>
             <thead>
               <tr>
-                <th> Mode </th>
+                <th>  </th>
                 { this.state.notes.map((note, index) => {
                   return (
                     <th>
                       <button className='modes-table-note-button' onClick={() => this.changeMainNote(note, index)}>
-                        { note.american }
+                        { this.renderNote(note.american) }
                       </button>
                     </th>
                   );
