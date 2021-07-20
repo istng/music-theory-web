@@ -1,6 +1,5 @@
 
 priorities
-	check to refactor commonly used functions and split scss file
 	maybe color/highlight current notes of scale in circle
 	color of graph and stylize
 	readme
