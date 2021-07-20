@@ -7,21 +7,23 @@ class Mode extends React.Component {
     this.state = {
       tone: props.tone,
       name: props.name,
+      color: props.color,
     };
   }
   static getDerivedStateFromProps(props, state) {
     return { 
       tone: props.tone,
       name: props.name,
+      color: props.color,
     };  
   }
 
   render() {
     let button;
     if (this.state.tone) {
-      button = <button className="mode-button" onClick={this.props.rotate}> { this.state.tone } <br /> ({ this.state.name }) </button>;
+      button = <button style={{background: this.state.color}} className="mode-button" onClick={this.props.rotate}> { this.state.tone } <br /> ({ this.state.name }) </button>;
     } else {
-      button = <button className="mode-button" onClick={this.props.rotate}> { this.state.name } </button>;
+      button = <button style={{background: this.state.color}} className="mode-button" onClick={this.props.rotate}> { this.state.name } </button>;
     }
     return (
       <div>
@@ -36,6 +38,7 @@ export class ModesCircle extends React.Component {
     super(props);
     this.state = {
       modes: props.modes,
+      mainMode: props.modes[0],
     };
   }
 
@@ -48,6 +51,7 @@ export class ModesCircle extends React.Component {
     let newModes = firstPart.concat(secondPart);
     this.setState({
       modes: newModes,
+      mainMode: newModes[0],
     });
     this.props.changeMode(newModes[0].name);
   }
@@ -55,7 +59,7 @@ export class ModesCircle extends React.Component {
   renderMode(mode, index) {
     if (mode.name) {
       return (
-        <li style={{background: mode.color}} key={index} ><div className="li-content" > <Mode name={mode.name} tone={mode.tone} rotate={() => {this.handleClick({...mode, index: index})}}/> </div></li>
+        <li style={{background: this.state.mainMode.color, opacity: (100-3*(index+1)).toString()+'%'}} key={index} ><div className="li-content" > <Mode name={mode.name} tone={mode.tone} color={mode.color} rotate={() => {this.handleClick({...mode, index: index})}}/> </div></li>
       );
     } else {
       return (

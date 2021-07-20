@@ -2,7 +2,7 @@ export const classicModes = [
         {
           tone: 'mayor',
           name: 'ionian',
-          color: '#FFAF3B',
+          color: '#FF6A4D',
           intervals: [true, false, true, false, true, true, false, true, false, true, false, true],
         }, {
         }, {
@@ -19,13 +19,13 @@ export const classicModes = [
         }, {
           tone: null,
           name: 'lydian',
-          color: '#FFFFA6',
+          color: '#FFAF3B',
           intervals: [true, false, true, false, true, false, true, true, false, true, false, true],
         }, {
         }, {
           tone: null,
           name: 'mixolydian',
-          color: '#FF6A4D',
+          color: '#FFFFA6',
           intervals: [true, false, true, false, true, true, false, true, false, true, true, false],
         }, {
         }, {
