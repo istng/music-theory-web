@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.scss';
 import MusicCircle from './components/music_circle.js'
 import ModesTable from './components/modes_table.js'
 

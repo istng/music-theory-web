@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/modes_table.scss';
 import { classicModes } from '../variables/scales.js'
 
 

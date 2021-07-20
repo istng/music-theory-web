@@ -1,4 +1,6 @@
 import React from 'react';
+import '../styles/music_circle_section.scss';
+import '../styles/music_circle.scss';
 import { ModesCircle } from './modes.js'
 import { NotesCircle } from './notes.js'
 import { classicModes } from '../variables/scales.js'

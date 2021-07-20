@@ -1,0 +1,17 @@
+
+@media (min-width: 667px) {
+  .mobile-name {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 667px) {
+  .modes-table button, td {
+    font-size: 0.5em;
+  }
+  .desktop-name {
+    display: none;
+    visibility: hidden;
+  }
+}
