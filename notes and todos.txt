@@ -1,9 +1,8 @@
 
 priorities
 	check to refactor commonly used functions and split scss file
-	color of buttons and modes
-		find a better color palette for the modes -> color the buttons of modes, but color the backgounrds as the leading mode
-	color of graph
+	maybe color/highlight current notes of scale in circle
+	color of graph and stylize
 	readme
 	background and stuff
 	fix warnings from sass (DO NOT FIX NPM UNTIL)
