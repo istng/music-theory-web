@@ -72,7 +72,7 @@ export class ModesTable extends React.Component {
     });
   }
 
-  getModeTableCell(currentCell, mainCurrentCell) {
+  renderModeTableCell(currentCell, mainCurrentCell) {
     if (currentCell && mainCurrentCell) {
       return (
         <td className='colored-equal-cell'>
@@ -109,7 +109,7 @@ export class ModesTable extends React.Component {
           </button>
         </td>
         { intervals.map((value, index) => {
-          return this.getModeTableCell(value, equalIntervals[index])
+          return this.renderModeTableCell(value, equalIntervals[index])
         }) }
       </tr>
     );
