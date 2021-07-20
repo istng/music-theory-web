@@ -8,6 +8,7 @@ class Note extends React.Component {
     this.state = {
       name: props.name,
       american: props.american,
+      buttonClassName: props.buttonClassName,
     };
   }
 
@@ -15,15 +16,16 @@ class Note extends React.Component {
     return { 
       name: props.name,
       american: props.american,
+      buttonClassName: props.buttonClassName,
     };  
   }
 
   render() {
     let button;
     if (this.state.american.length === 2) {
-      button = <button className="note-button" onClick={this.props.rotate}> { this.state.american[0] } <br /> { this.state.american[1] } </button>
+      button = <button className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american[0] } <br /> { this.state.american[1] } </button>
     } else {
-      button = <button className="note-button" onClick={this.props.rotate}> { this.state.american } </button>
+      button = <button className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american } </button>
     }
     return (
       <div>
@@ -76,6 +78,7 @@ export class NotesCircle extends React.Component {
           american: ['B'],
         }
       ],
+      intervals: [true, false, true, false, true, true, false, true, false, true, false, true],
     };
   }
 
@@ -95,9 +98,19 @@ export class NotesCircle extends React.Component {
         <div>
           <ul className="notes-circle">
             { this.state.notes.map((note, index) => {
+              let buttonClassName = 'note-button';
+              if (this.props.intervals[index]) {
+                buttonClassName += ' colored-note-button';
+              }
               return (
                 <li key={index}>
-                  <div className="li-content"><Note name={note.name} american={note.american} rotate={() => {this.handleClick({...note, index: index})}}/></div>
+                  <div className="li-content">
+                    <Note 
+                      name={note.name}
+                      american={note.american}
+                      buttonClassName={buttonClassName}
+                      rotate={() => {this.handleClick({...note, index: index})}}/>
+                  </div>
                 </li>
               );
             }) }

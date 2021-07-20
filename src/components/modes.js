@@ -52,7 +52,7 @@ export class ModesCircle extends React.Component {
       modes: newModes,
       mainMode: newModes[0],
     });
-    this.props.changeMode(newModes[0].name);
+    this.props.changeMode(newModes[0]);
   }
 
   getModeBackgroundColor(color, modeIndex) {

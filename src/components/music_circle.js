@@ -10,14 +10,14 @@ export class MusicCircle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentMainMode: 'mayor (ionian)',
+      currentMainMode: classicModes[0],
       currentMainNote: ['C'],
     };
   }
 
-  changeMode(modeName) {
+  changeMode(mode) {
     this.setState({
-      currentMainMode: modeName,
+      currentMainMode: mode,
     });
   }
 
@@ -31,13 +31,13 @@ export class MusicCircle extends React.Component {
     return (
         <div className='music-circle-section'>
           <div className='circle-container'>
-            <ModesCircle className='modes-circle-component' modes={classicModes} changeMode={(modeName) => {this.changeMode(modeName)}}/>
+            <ModesCircle className='modes-circle-component' modes={classicModes} changeMode={(mode) => {this.changeMode(mode)}}/>
             <div className='inner-circle'>
-              <NotesCircle className='notes-circle-component' changeNote={(note) => {this.changeNote(note)}} />
+              <NotesCircle className='notes-circle-component' intervals={this.state.currentMainMode.intervals} changeNote={(note) => {this.changeNote(note)}} />
             </div>
           </div>
           <div className='music-circle-text'>
-            <p> { this.state.currentMainMode } { this.state.currentMainNote.join('/') }</p>
+            <p> { this.state.currentMainMode.name } { this.state.currentMainNote.join('/') }</p>
           </div>
         </div>
     );
