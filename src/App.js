@@ -7,7 +7,9 @@ export class App extends React.Component {
 
   render() {
     return (
-        < MusicCircle />
+      <div>
+        <MusicCircle />
+      </div>
     );
   }
 }
