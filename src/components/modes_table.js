@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/modes_table.scss';
-import { classicModes } from '../variables/scales.js'
+import { rotateArrayFromIndex, exclusiveAndArray } from '../utils/tools.js';
+import { classicModes } from '../variables/scales.js';
 
 
 export class ModesTable extends React.Component {
@@ -53,7 +54,6 @@ export class ModesTable extends React.Component {
     };
   }
 
-
   changeMainMode(modeName) {
     this.setState({
       currentMainMode: modeName,
@@ -61,22 +61,18 @@ export class ModesTable extends React.Component {
     });
   }
 
-
   changeMainNote(note, index) {
     if (index === 0) {
       return;
     }
-    let firstPart = this.state.notes.slice(index);
-    let secondPart = this.state.notes.slice(0, index);
-    let newNotes = firstPart.concat(secondPart);
+    const newNotes = rotateArrayFromIndex(this.state.notes, index);
     this.setState({
       notes: newNotes,
       currentMainNote: note,
     });
   }
 
-
-  getTableCell(currentCell, mainCurrentCell) {
+  getModeTableCell(currentCell, mainCurrentCell) {
     if (currentCell && mainCurrentCell) {
       return (
         <td className='colored-equal-cell'>
@@ -97,25 +93,26 @@ export class ModesTable extends React.Component {
     }
   }
 
-
   renderModeRow(modeName) {
     let intervals = classicModes.find(mode => mode.name === modeName).intervals;
-    let equalIntervals = intervals.map((interval, index) => interval === this.state.currentMainIntervals[index]);
-    return (<tr>
-      <td>
-        <button className='modes-table-mode-button' onClick={() => this.changeMainMode(modeName)}>
-          <div className='desktop-name'>
-            { modeName }
-          </div>
-          <div className='mobile-name'>
-            { modeName[0] }
-          </div>
-        </button>
-      </td>
-      { intervals.map((value, index) => {
-        return this.getTableCell(value, equalIntervals[index])
-      }) }
-    </tr>);
+    let equalIntervals = exclusiveAndArray(intervals, this.state.currentMainIntervals);
+    return (
+      <tr>
+        <td>
+          <button className='modes-table-mode-button' onClick={() => this.changeMainMode(modeName)}>
+            <div className='desktop-name'>
+              { modeName }
+            </div>
+            <div className='mobile-name'>
+              { modeName[0] }
+            </div>
+          </button>
+        </td>
+        { intervals.map((value, index) => {
+          return this.getModeTableCell(value, equalIntervals[index])
+        }) }
+      </tr>
+    );
   }
 
   renderNote(american) {
@@ -140,7 +137,7 @@ export class ModesTable extends React.Component {
     return (
         <div className='modes-table-container'>
           <table className='modes-table'>
-            <thead>
+            <thead className='notes-header'>
               <tr>
                 <th>  </th>
                 { this.state.notes.map((note, index) => {
@@ -154,7 +151,7 @@ export class ModesTable extends React.Component {
                 }) }
               </tr>
             </thead>
-            <tbody>
+            <tbody className='modes-body'>
               { this.state.modesNames.map((name) => {
                 return (
                   this.renderModeRow(name)

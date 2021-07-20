@@ -1,4 +1,5 @@
 import React from 'react';
+import { rotateArrayFromIndex } from '../utils/tools.js';
 
 
 class Note extends React.Component {
@@ -9,6 +10,7 @@ class Note extends React.Component {
       american: props.american,
     };
   }
+
   static getDerivedStateFromProps(props, state) {
     return { 
       name: props.name,
@@ -30,7 +32,6 @@ class Note extends React.Component {
     );
   }
 }
-
 
 export class NotesCircle extends React.Component {
   constructor(props) {
@@ -78,14 +79,11 @@ export class NotesCircle extends React.Component {
     };
   }
 
-
   handleClick(noteClicked) {
     if (noteClicked.index === 0) {
       return;
     }
-    let firstPart = this.state.notes.slice(noteClicked.index);
-    let secondPart = this.state.notes.slice(0, noteClicked.index);
-    let newNotes = firstPart.concat(secondPart);
+    const newNotes = rotateArrayFromIndex(this.state.notes, noteClicked.index);
     this.setState({
       notes: newNotes,
     });
@@ -93,7 +91,6 @@ export class NotesCircle extends React.Component {
   }
 
   render() {
-
     return (
         <div>
           <ul className="notes-circle">

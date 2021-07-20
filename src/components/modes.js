@@ -1,4 +1,5 @@
 import React from 'react';
+import { rotateArrayFromIndex } from '../utils/tools.js';
 
 
 class Mode extends React.Component {
@@ -46,9 +47,7 @@ export class ModesCircle extends React.Component {
     if (modeClicked.index === 0) {
       return;
     }
-    let firstPart = this.state.modes.slice(modeClicked.index);
-    let secondPart = this.state.modes.slice(0, modeClicked.index);
-    let newModes = firstPart.concat(secondPart);
+    const newModes = rotateArrayFromIndex(this.state.modes, modeClicked.index);
     this.setState({
       modes: newModes,
       mainMode: newModes[0],
@@ -70,7 +69,7 @@ export class ModesCircle extends React.Component {
       );
     } else {
       return (
-        <li style={{background: 'grey', opacity: '25%'}} key={index}><div className="li-content">  </div></li>
+        <li className='empty-mode-slot' key={index}><div className="li-content">  </div></li>
       );
     }
   }
