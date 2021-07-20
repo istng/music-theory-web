@@ -15,7 +15,7 @@ export const classicModes = [
           tone: null,
           name: 'phrygian',
           color: '#ACD0EA',
-          intervals: [true, true, false, true, false, true, false, true, false, true, true, false],
+          intervals: [true, true, false, true, false, true, false, true, true, false, true, false],
         }, {
           tone: null,
           name: 'lydian',
