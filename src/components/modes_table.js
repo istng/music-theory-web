@@ -45,27 +45,97 @@ export class ModesTable extends React.Component {
           american: ['B'],
         }
       ],
+      modesNames: ['ionian', 'lydian', 'mixolydian', 'dorian', 'aeolian', 'phrygian', 'locrian'],
+      currentMainNote: 'C',
+      currentMainMode: 'ionian',
+      currentMainIntervals: classicModes.find(mode => mode.name === 'ionian').intervals,
     };
   }
 
 
-  renderModeRow(modeIndex) {
+  changeMainMode(modeName) {
+    this.setState({
+      currentMainMode: modeName,
+      currentMainIntervals: classicModes.find(mode => mode.name === modeName).intervals,
+    });
+  }
 
+
+  changeMainNote(note, index) {
+    if (index === 0) {
+      return;
+    }
+    let firstPart = this.state.notes.slice(index);
+    let secondPart = this.state.notes.slice(0, index);
+    let newNotes = firstPart.concat(secondPart);
+    this.setState({
+      notes: newNotes,
+      currentMainNote: note,
+    });
+  }
+
+
+  getTableCell(currentCell, mainCurrentCell) {
+    if (currentCell && mainCurrentCell) {
+      return (
+        <td className='colored-equal-cell'>
+          O
+        </td>
+      );
+    } else if(currentCell) {
+      return (
+        <td className='colored-different-cell'>
+          E
+        </td>
+      );
+    } else {
+      return (
+        <td className='uncolored-cell'>
+        </td>
+      );
+    }
+  }
+
+
+  renderModeRow(modeName) {
+    let intervals = classicModes.find(mode => mode.name === modeName).intervals;
+    let equalIntervals = intervals.map((interval, index) => interval === this.state.currentMainIntervals[index]);
+    return (<tr>
+      <td>
+        <button className='modes-table-mode-button' onClick={() => this.changeMainMode(modeName)}>
+          { modeName }
+        </button>
+      </td>
+      { intervals.map((value, index) => {
+        return this.getTableCell(value, equalIntervals[index])
+      }) }
+    </tr>);
   }
 
   render() {
     return (
-        <div className='modes-table'>
-          <table>
+        <div className='modes-table-container'>
+          <table className='modes-table'>
             <thead>
-              <th> Mode </th>
-              { this.state.notes.map((note) => {
-                return (
-                  <th> { note.american }</th>
-                );
-              }) }
+              <tr>
+                <th> Mode </th>
+                { this.state.notes.map((note, index) => {
+                  return (
+                    <th>
+                      <button className='modes-table-note-button' onClick={() => this.changeMainNote(note, index)}>
+                        { note.american }
+                      </button>
+                    </th>
+                  );
+                }) }
+              </tr>
             </thead>
             <tbody>
+              { this.state.modesNames.map((name) => {
+                return (
+                  this.renderModeRow(name)
+                );
+              }) }
             </tbody>
           </table>
         </div>
