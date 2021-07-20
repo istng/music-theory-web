@@ -1,7 +1,7 @@
 
 priorities
-	graph of modes (the main note changes with the circle)
-	color or buttons and modes
+	check to refactor commonly used functions and split scss file
+	color of buttons and modes
 		find a better color palette for the modes -> color the buttons of modes, but color the backgounrds as the leading mode
 	color of graph
 	readme
