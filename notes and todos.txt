@@ -1,6 +1,5 @@
 
 priorities
-	color of graph and stylize
 	readme
 	background and stuff
 	fix warnings from sass (DO NOT FIX NPM UNTIL)
