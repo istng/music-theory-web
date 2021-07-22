@@ -1,17 +1,54 @@
 
 @media (min-width: 667px) {
+  .desktop-name {
+    display: inline;
+    visibility: visible;
+  }
   .mobile-name {
     display: none;
     visibility: hidden;
   }
 }
 
-@media (max-width: 667px) {
+@media (max-width: 668px) {
   .modes-table button, td {
     font-size: 0.5em;
   }
   .desktop-name {
     display: none;
     visibility: hidden;
+  }
+  .mobile-name {
+    display: inline;
+    visibility: visible;
+  }
+}
+.modes-table-container {
+  table {
+    table-layout: fixed;
+    width: 80%;
+    margin-left: 8%;
+    margin-bottom: 1%;
+    border-collapse: collapse;
+  }
+  td {
+    width: 25%;
+    text-align:center;
+  }
+
+  table td {
+    border: 1px solid black; 
+  }
+  table tr:first-child td {
+    border-top: 0;
+  }
+  table tr td:first-child {
+    border-left: 0;
+  }
+  table tr:last-child td {
+    border-bottom: 0;
+  }
+  table tr td:last-child {
+    border-right: 0;
   }
 }
