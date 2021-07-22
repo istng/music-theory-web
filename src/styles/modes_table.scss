@@ -26,18 +26,16 @@
 .modes-table-container {
   table {
     table-layout: fixed;
-    width: 80%;
     margin-left: 8%;
     margin-bottom: 1%;
     border-collapse: collapse;
   }
   td {
-    width: 25%;
     text-align:center;
   }
 
   table td {
-    border: 1px solid black; 
+    border: 2px solid rgba(0,0,0,.5); 
   }
   table tr:first-child td {
     border-top: 0;
@@ -51,4 +49,23 @@
   table tr td:last-child {
     border-right: 0;
   }
+}
+
+.circle-container {
+    display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-color-circle {
+  clip-path: circle(45%);
+  height: 1.2em;
+  width: 1.2em;
+}
+
+.current-color-circle {
+  clip-path: circle(45%);
+  height: 1.2em;
+  width: 1.2em;
+  text-align: center;
 }

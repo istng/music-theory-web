@@ -75,12 +75,20 @@ export class ModesTable extends React.Component {
   renderModeTableCell(currentCell, mainCurrentCell, mainModeColor, currentModeColor) {
     if (currentCell && mainCurrentCell) {
       return (
-        <td style={{background: mainModeColor}} className='colored-equal-cell'>
+        <td>
+          <div className='circle-container'>
+            <div style={{background: mainModeColor}} className="main-color-circle">
+            </div>
+          </div>
         </td>
       );
     } else if(currentCell) {
       return (
-        <td style={{background: currentModeColor}} className='colored-different-cell'>
+        <td>
+          <div className='circle-container'>
+            <div style={{background: currentModeColor}} className="current-color-circle">
+            </div>
+          </div>
         </td>
       );
     } else {
