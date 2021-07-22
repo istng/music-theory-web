@@ -47,17 +47,17 @@ export class ModesTable extends React.Component {
           american: ['B'],
         }
       ],
-      modesNames: ['ionian', 'lydian', 'mixolydian', 'dorian', 'aeolian', 'phrygian', 'locrian'],
+      modesNames: ['ionian', 'lydian', 'mixolydian', 'aeolian', 'dorian', 'phrygian', 'locrian'],
       mainNote: 'C',
       mainMode: 'ionian',
-      currentMainIntervals: classicModes.find(mode => mode.name === 'ionian').intervals,
+      mainIntervals: classicModes.find(mode => mode.name === 'ionian').intervals,
     };
   }
 
   changeMainMode(modeName) {
     this.setState({
       mainMode: modeName,
-      currentMainIntervals: classicModes.find(mode => mode.name === modeName).intervals,
+      mainIntervals: classicModes.find(mode => mode.name === modeName).intervals,
     });
   }
 
@@ -101,7 +101,7 @@ export class ModesTable extends React.Component {
 
   renderModeRow(modeName) {
     let intervals = classicModes.find(mode => mode.name === modeName).intervals;
-    let equalIntervals = exclusiveAndArray(intervals, this.state.currentMainIntervals);
+    let equalIntervals = exclusiveAndArray(intervals, this.state.mainIntervals);
     const currentModeColor = classicModes.find(mode => mode.name === modeName).color;
     const mainModeColor = classicModes.find(mode => mode.name === this.state.mainMode).color;
     return (
@@ -149,9 +149,13 @@ export class ModesTable extends React.Component {
               <tr>
                 <th>  </th>
                 { this.state.notes.map((note, index) => {
+                  let buttonClassName = 'modes-table-note-button';
+                  if (this.state.mainIntervals[index]) {
+                    buttonClassName += ' colored-note-button';
+                  }
                   return (
                     <th>
-                      <button className='modes-table-note-button' onClick={() => this.changeMainNote(note, index)}>
+                      <button className={buttonClassName} onClick={() => this.changeMainNote(note, index)}>
                         { this.renderNote(note.american) }
                       </button>
                     </th>

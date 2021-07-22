@@ -35,7 +35,7 @@
   }
 
   table td {
-    border: 2px solid rgba(0,0,0,.5); 
+    border: 0.13em solid rgba(191,191,191,1);
   }
   table tr:first-child td {
     border-top: 0;
@@ -52,7 +52,7 @@
 }
 
 .circle-container {
-    display:flex;
+  display:flex;
   align-items: center;
   justify-content: center;
 }
@@ -68,4 +68,21 @@
   height: 1.2em;
   width: 1.2em;
   text-align: center;
+}
+
+.modes-table-mode-button {
+  cursor: pointer;
+  border-radius: 40%;
+  border: 0.25em solid rgba(0,0,0,.05);
+  background-color: rgba(255,255,255,1);
+}
+
+.modes-table-note-button {
+  cursor: pointer;
+  border-radius: 40%;
+  border: 0.25em solid rgba(0,0,0,.05);
+}
+
+.colored-note-button {
+  border: 0.25em solid rgba(0,0,0,.2);
 }
