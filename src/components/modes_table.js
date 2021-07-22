@@ -48,15 +48,15 @@ export class ModesTable extends React.Component {
         }
       ],
       modesNames: ['ionian', 'lydian', 'mixolydian', 'dorian', 'aeolian', 'phrygian', 'locrian'],
-      currentMainNote: 'C',
-      currentMainMode: 'ionian',
+      mainNote: 'C',
+      mainMode: 'ionian',
       currentMainIntervals: classicModes.find(mode => mode.name === 'ionian').intervals,
     };
   }
 
   changeMainMode(modeName) {
     this.setState({
-      currentMainMode: modeName,
+      mainMode: modeName,
       currentMainIntervals: classicModes.find(mode => mode.name === modeName).intervals,
     });
   }
@@ -68,21 +68,19 @@ export class ModesTable extends React.Component {
     const newNotes = rotateArrayFromIndex(this.state.notes, index);
     this.setState({
       notes: newNotes,
-      currentMainNote: note,
+      mainNote: note,
     });
   }
 
-  renderModeTableCell(currentCell, mainCurrentCell) {
+  renderModeTableCell(currentCell, mainCurrentCell, mainModeColor, currentModeColor) {
     if (currentCell && mainCurrentCell) {
       return (
-        <td className='colored-equal-cell'>
-          O
+        <td style={{background: mainModeColor}} className='colored-equal-cell'>
         </td>
       );
     } else if(currentCell) {
       return (
-        <td className='colored-different-cell'>
-          E
+        <td style={{background: currentModeColor}} className='colored-different-cell'>
         </td>
       );
     } else {
@@ -96,10 +94,12 @@ export class ModesTable extends React.Component {
   renderModeRow(modeName) {
     let intervals = classicModes.find(mode => mode.name === modeName).intervals;
     let equalIntervals = exclusiveAndArray(intervals, this.state.currentMainIntervals);
+    const currentModeColor = classicModes.find(mode => mode.name === modeName).color;
+    const mainModeColor = classicModes.find(mode => mode.name === this.state.mainMode).color;
     return (
       <tr>
         <td>
-          <button className='modes-table-mode-button' onClick={() => this.changeMainMode(modeName)}>
+          <button style={{background: currentModeColor}} className='modes-table-mode-button' onClick={() => this.changeMainMode(modeName)}>
             <div className='desktop-name'>
               { modeName }
             </div>
@@ -109,7 +109,7 @@ export class ModesTable extends React.Component {
           </button>
         </td>
         { intervals.map((value, index) => {
-          return this.renderModeTableCell(value, equalIntervals[index])
+          return this.renderModeTableCell(value, equalIntervals[index], mainModeColor, currentModeColor)
         }) }
       </tr>
     );
