@@ -1,7 +1,6 @@
 
 priorities
 	background and stuff
-	fix warnings from sass (DO NOT FIX NPM UNTIL)
 	polish look
 	update readme
 	the rest
