@@ -1,5 +1,6 @@
 
 /* Circle Generating Mixins */
+@use 'sass:math';
 
 @mixin line-circle($item-count, $circle-size, $item-size) {  
   position: relative;
@@ -14,16 +15,16 @@
     position: absolute;
     top:  50%; 
     left: 50%;
-    margin: -($item-size / 2);
+    margin: -1 * math.div($item-size, 2);
     width:  $item-size;
     height: $item-size;
   
-    $angle: (360 / $item-count);
+    $angle: math.div(360, $item-count);
     $rot: -74;
 
     @for $i from 1 through $item-count {
       &:nth-of-type(#{$i}) {
-        transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+        transform: rotate($rot * 1deg) translate( math.div($circle-size, 2) ) rotate($rot * -1deg);
       }
 
       $rot: $rot + $angle;
