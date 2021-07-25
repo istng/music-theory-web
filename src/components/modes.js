@@ -1,6 +1,5 @@
 import React from 'react';
-import { rotateArrayFromIndex } from '../utils/tools.js';
-
+import { modulo } from '../utils/tools.js';
 
 class Mode extends React.Component {
   constructor(props) {
@@ -39,20 +38,15 @@ export class ModesCircle extends React.Component {
     super(props);
     this.state = {
       modes: props.modes,
-      mainMode: props.modes[0],
+      mainModeIndex: 0,
     };
   }
 
-  handleClick(modeClicked) {
-    if (modeClicked.index === 0) {
-      return;
-    }
-    const newModes = rotateArrayFromIndex(this.state.modes, modeClicked.index);
+  handleClick(modeClicked, index) {
     this.setState({
-      modes: newModes,
-      mainMode: newModes[0],
+      mainModeIndex: index,
     });
-    this.props.changeMode(newModes[0]);
+    this.props.changeMode(modeClicked);
   }
 
   getModeBackgroundColor(color, modeIndex) {
@@ -62,10 +56,33 @@ export class ModesCircle extends React.Component {
     };
   }
 
+  getMainMode() {
+    return this.state.modes[this.state.mainModeIndex];
+  }
+
+  getCircleRotation() {
+    return - (this.state.mainModeIndex / this.state.modes.length) * 360;
+  }
+
   renderMode(mode, index) {
     if (mode.name) {
       return (
-        <li style={this.getModeBackgroundColor(this.state.mainMode.color, index)} key={index} ><div className="li-content" > <Mode name={mode.name} tone={mode.tone} color={mode.color} rotate={() => {this.handleClick({...mode, index: index})}}/> </div></li>
+        <li
+          style={this.getModeBackgroundColor(this.getMainMode().color, modulo(index - this.state.mainModeIndex, this.state.modes.length))}
+          key={index}
+        >
+          <div className="li-content" data-index={(index - this.state.mainModeIndex) % this.state.modes.length}>
+            {" "}
+            <Mode
+              name={mode.name}
+              tone={mode.tone}
+              color={mode.color}
+              rotate={() => {
+                this.handleClick(mode, index);
+              }}
+            />{" "}
+          </div>
+        </li>
       );
     } else {
       return (
@@ -77,7 +94,7 @@ export class ModesCircle extends React.Component {
   render() {
     return (
         <div>
-          <ul className="modes-circle">
+          <ul className="modes-circle" style={{ transform: `rotate(${this.getCircleRotation()}deg)` }}>
             { this.state.modes.map((mode, index) => {
               return this.renderMode(mode, index);
             }) }
