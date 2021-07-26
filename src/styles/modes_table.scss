@@ -26,8 +26,7 @@
 .modes-table-container {
   table {
     table-layout: fixed;
-    margin-left: 8%;
-    margin-bottom: 1%;
+    margin: 0 auto 1%;
     border-collapse: collapse;
   }
   td {
@@ -72,14 +71,14 @@
 
 .modes-table-mode-button {
   cursor: pointer;
-  border-radius: 40%;
+  border-radius: 1.2em;
   border: 0.25em solid rgba(0,0,0,.05);
   background-color: rgba(255,255,255,1);
 }
 
 .modes-table-note-button {
   cursor: pointer;
-  border-radius: 40%;
+  border-radius: 1.2em;
   border: 0.25em solid rgba(0,0,0,.05);
 }
 
