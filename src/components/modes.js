@@ -71,7 +71,7 @@ export class ModesCircle extends React.Component {
           style={this.getModeBackgroundColor(this.getMainMode().color, modulo(index - this.state.mainModeIndex, this.state.modes.length))}
           key={index}
         >
-          <div className="li-content" data-index={(index - this.state.mainModeIndex) % this.state.modes.length}>
+          <div className="li-content" >
             {" "}
             <Mode
               name={mode.name}
