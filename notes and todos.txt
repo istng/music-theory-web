@@ -1,10 +1,12 @@
 
 priorities
-	background and stuff
+	alteration notes button
+	change firebase domain/project name (maybe create a new project... but I dont like creating-deleting with google console)
+	test smoothly change colors
 	polish look
 	update readme
+	use prettier con all js and scss files
 	the rest
-		change firebase domain/project name (maybe create a new project... but I dont like creating-deleting with google console)
 		harmonic and melodic minors
 		showing blues scales
 		circle of fifths
