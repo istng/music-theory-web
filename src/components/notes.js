@@ -1,5 +1,5 @@
 import React from 'react';
-import { rotateArrayFromIndex } from '../utils/tools.js';
+import { modulo } from '../utils/tools.js';
 
 
 class Note extends React.Component {
@@ -21,11 +21,12 @@ class Note extends React.Component {
   }
 
   render() {
+    console.log(`rotate(${-1*this.props.buttonRotation}deg)`);
     let button;
     if (this.state.american.length === 2) {
-      button = <button className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american[0] } <br /> { this.state.american[1] } </button>
+      button = <button style={{ transform: `rotate(${-1*this.props.buttonRotation}deg)` }} className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american[0] } <br /> { this.state.american[1] } </button>
     } else {
-      button = <button className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american } </button>
+      button = <button style={{ transform: `rotate(${-1*this.props.buttonRotation}deg)` }} className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american } </button>
     }
     return (
       <div>
@@ -78,38 +79,39 @@ export class NotesCircle extends React.Component {
           american: ['B'],
         }
       ],
-      intervals: [true, false, true, false, true, true, false, true, false, true, false, true],
+      mainNoteIndex: 0,
     };
   }
 
-  handleClick(noteClicked) {
-    if (noteClicked.index === 0) {
-      return;
-    }
-    const newNotes = rotateArrayFromIndex(this.state.notes, noteClicked.index);
+  handleClick(noteClicked, index) {
     this.setState({
-      notes: newNotes,
+      mainNoteIndex: index,
     });
-    this.props.changeNote(newNotes[0].american);
+    this.props.changeNote(this.state.notes[index].american);
+  }
+
+  getCircleRotation() {
+    return - (this.state.mainNoteIndex / this.state.notes.length) * 360;
   }
 
   render() {
     return (
         <div>
-          <ul className="notes-circle">
+          <ul className="notes-circle" style={{ transform: `rotate(${this.getCircleRotation()}deg)` }}>
             { this.state.notes.map((note, index) => {
               let buttonClassName = 'note-button';
-              if (this.props.intervals[index]) {
+              if (this.props.intervals[modulo(index - this.state.mainNoteIndex, this.state.notes.length)]) {
                 buttonClassName += ' colored-note-button';
               }
               return (
-                <li key={index}>
+                <li key={index} >
                   <div className="li-content">
                     <Note 
                       name={note.name}
                       american={note.american}
                       buttonClassName={buttonClassName}
-                      rotate={() => {this.handleClick({...note, index: index})}}/>
+                      rotate={() => {this.handleClick(note, index)}}
+                      buttonRotation={this.getCircleRotation()} />
                   </div>
                 </li>
               );

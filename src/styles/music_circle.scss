@@ -24,8 +24,8 @@
     @for $i from 1 through $item-count {
       &:nth-of-type(#{$i}) {
         transform: rotate($rot * 1deg)
-          translate(math.div($circle-size, 2))
-          rotate($rot * -1deg);
+        translate(math.div($circle-size, 2))
+        rotate($rot * -1deg);
       }
 
       $rot: $rot + $angle;
@@ -128,7 +128,7 @@
 
 .notes-circle {
   @include line-circle($item-count: 12, $circle-size: 12em, $item-size: 2em);
-
+  transition: transform 500ms ease;
   li {
     display: flex;
     align-items: center;
@@ -146,6 +146,7 @@
   cursor: pointer;
   border-radius: 40px;
   border: 0.25em solid rgba(0, 0, 0, 0.05);
+  transition: transform 500ms ease;
 }
 
 .colored-note-button {
