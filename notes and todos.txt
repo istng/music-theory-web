@@ -1,10 +1,10 @@
 
 priorities
 	change firebase domain/project name (maybe create a new project... but I dont like creating-deleting with google console)
-	fix non existing colors on circle on build
 	change speed of rotation, and test fixing rotation direction
 	test smoothly change colors
 	same width to all cells on modes table
+	fix mobile ui issues
 	design and make favicon
 	update readme
 	use prettier con all js and scss files
