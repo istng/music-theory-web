@@ -1,0 +1,12 @@
+
+.app-music-tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .app-music-tools {
+    flex-direction: column;
+  }
+}

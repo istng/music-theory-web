@@ -4,10 +4,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: flex-start;
   position: relative;
-  padding: 0 5em;
-  margin-bottom: 2em;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 0;
+  margin-right: 2em;
+}
+
+@media (max-width: 768px) {
+  .music-circle-section {
+    margin-bottom: 1em;
+    margin-right: 0;
+  }
 }
 
 /* Rightward Text Box */
@@ -15,29 +23,12 @@
 .music-circle-text {
   padding-left: 1em;
   padding-top: 4em;
-  position: absolute;
   top: 0;
   right: 0;
-}
-
-@media (max-width: 768px) {
-  .music-circle-section {
-    flex-direction: column;
-    padding: 0;
-    margin-bottom: 0;
-  }
-  .music-circle-text {
-    padding-left: 1em;
-    padding-top: 4em;
-    position: static;
-    top: 0;
-    right: 0;
-    padding: 0;
-    width: 100%;
-    text-align: center;
-
-    p {
-      margin: 0;
-    }
+  padding: 0;
+  
+  text-align: center;
+  p {
+    margin: 0;
   }
 }
