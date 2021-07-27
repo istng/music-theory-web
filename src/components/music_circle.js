@@ -31,7 +31,7 @@ export class MusicCircle extends React.Component {
     return (
         <div className='music-circle-section'>
           <div className='music-circle-text'>
-            <p> { this.state.currentMainMode.name } { this.state.currentMainNote.join('/') }</p>
+            <p> The current mode is { this.state.currentMainNote.join('/') } { this.state.currentMainMode.name } </p>
           </div>
           <div className='circle-container'>
             <ModesCircle className='modes-circle-component' modes={classicModes} changeMode={(mode) => {this.changeMode(mode)}}/>
