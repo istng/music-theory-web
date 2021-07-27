@@ -21,10 +21,23 @@ class Note extends React.Component {
   }
 
   render() {
-    console.log(`rotate(${-1*this.props.buttonRotation}deg)`);
     let button;
     if (this.state.american.length === 2) {
-      button = <button style={{ transform: `rotate(${-1*this.props.buttonRotation}deg)` }} className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american[0] } <br /> { this.state.american[1] } </button>
+      button = 
+        <button 
+          style={{ transform: `rotate(${-1*this.props.buttonRotation}deg)` }} 
+          className={"alteration-button " +  this.state.buttonClassName }
+          onClick={this.props.rotate}> 
+            <div className="sharp-note">
+              { this.state.american[0] } 
+            </div>
+            <div className="alteration-division">
+              /
+            </div>
+            <div className="flat-note">
+              { this.state.american[1] } 
+            </div>
+        </button>
     } else {
       button = <button style={{ transform: `rotate(${-1*this.props.buttonRotation}deg)` }} className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american } </button>
     }

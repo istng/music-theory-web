@@ -107,7 +107,7 @@
 
 .mode-button {
   cursor: pointer;
-  border-radius: 40%;
+  border-radius: 40px;
   border: 0.25em solid rgba(0, 0, 0, 0.05);
   padding: 0.4em;
   background-color: rgba(255, 255, 255, 0.75);
@@ -151,4 +151,26 @@
 
 .colored-note-button {
   border: 0.25em solid rgba(0, 0, 0, 0.2);
+}
+
+.alteration-button {
+  width: 50px;
+  height: 25px;
+}
+
+.sharp-note {
+  position: relative;
+  top: -5px;
+  left: -9px;
+}
+
+.alteration-division {
+  position: relative;
+  top: -24px;
+}
+
+.flat-note {
+  position: relative;
+  top: -39px;
+  left: 9px;
 }
