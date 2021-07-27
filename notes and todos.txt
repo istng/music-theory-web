@@ -1,7 +1,5 @@
 
 priorities
-	alteration notes button
-	arrange positioning of circle text box
 	change firebase domain/project name (maybe create a new project... but I dont like creating-deleting with google console)
 	fix non existing colors on circle on build
 	change speed of rotation, and test fixing rotation direction
@@ -10,8 +8,10 @@ priorities
 	design and make favicon
 	update readme
 	use prettier con all js and scss files
-	the rest
-		harmonic and melodic minors
-		showing blues scales
-		circle of fifths
-		chords (maybe circle of chords first?)
+
+
+the rest
+	harmonic and melodic minors
+	showing blues scales
+	circle of fifths
+	chords (maybe circle of chords first?)
