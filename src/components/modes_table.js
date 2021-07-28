@@ -126,7 +126,7 @@ export class ModesTable extends React.Component {
   renderNote(american) {
     if(american.length === 2) {
       return (
-        <div>
+        <div className="altered-note-text">
           { american[0] }
           <br />
           { american[1] }
@@ -134,7 +134,7 @@ export class ModesTable extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="normal-note-text">
           { american[0] }
         </div>
       );
