@@ -107,7 +107,7 @@
 
 .mode-button {
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 1.8em;
   border: 0.25em solid rgba(0, 0, 0, 0.05);
   padding: 0.4em;
   background-color: rgba(255, 255, 255, 0.75);
@@ -142,8 +142,9 @@
 }
 
 .note-button {
+  background-color: #efefef;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 1em;
   border: 0.25em solid rgba(0, 0, 0, 0.05);
   transition: transform 500ms ease;
 }
@@ -153,23 +154,58 @@
 }
 
 .alteration-button {
-  width: 50px;
-  height: 25px;
+  width: 3.5em;
+  height: 1.8em;
 }
 
 .sharp-note {
   position: relative;
-  top: -5px;
-  left: -9px;
+  top: -0.45em;
+  left: -0.8em;
 }
 
 .alteration-division {
   position: relative;
-  top: -24px;
+  top: -1.8em;
 }
 
 .flat-note {
   position: relative;
-  top: -39px;
-  left: 9px;
+  top: -3em;
+  left: 0.7em;
+}
+
+@media (max-width: 768px) {
+  .note-button {
+    width: 0.5em;
+    height: 1.5em;
+  }
+
+  .alteration-button {
+    width: 3.5em;
+    height: 1.6em;
+  }
+
+  .sharp-note {
+  position: relative;
+  top: -0.3em;
+  left: -0.8em;
+  }
+
+  .alteration-division {
+    position: relative;
+    top: -1.8em;
+  }
+
+  .flat-note {
+    position: relative;
+    top: -3.3em;
+    left: 0.7em;
+  }
+
+  .normal-note {
+    position: relative;
+    top: -0.35em;
+    left: -0.3em;
+  }
 }

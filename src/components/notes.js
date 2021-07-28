@@ -39,7 +39,15 @@ class Note extends React.Component {
             </div>
         </button>
     } else {
-      button = <button style={{ transform: `rotate(${-1*this.props.buttonRotation}deg)` }} className={ this.state.buttonClassName } onClick={this.props.rotate}> { this.state.american } </button>
+      button = 
+        <button 
+          style={{ transform: `rotate(${-1*this.props.buttonRotation}deg)` }} 
+          className={ this.state.buttonClassName } 
+          onClick={this.props.rotate}> 
+            <div className="normal-note">
+              { this.state.american } 
+            </div>
+        </button>
     }
     return (
       <div>
