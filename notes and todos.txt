@@ -1,10 +1,8 @@
 
 priorities
-	same width to all cells on modes table
-	fix mobile ui issues
 	design and make favicon
 	update readme
-	change firebase domain/project name (maybe create a new project... but I dont like creating-deleting with google console)
+	change firebase domain/project name - host in another place, like digital ocean
 	change speed of rotation, and test fixing rotation direction
 	test smoothly change colors
 	use prettier con all js and scss files
