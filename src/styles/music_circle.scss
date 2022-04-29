@@ -209,3 +209,10 @@
     left: -0.3em;
   }
 }
+
+@media (min-width: 768px) {
+  .alteration-button {
+    position: relative;
+    top: 1.5em;
+  }
+}
